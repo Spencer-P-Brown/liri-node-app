@@ -12,7 +12,3 @@ exports.twitterKeys = {
 // 	id: "490ffa49217541cc994a6cf70636c9e1",
 // 	secret: "4d660f3a6a72412fa8b38d58d6dc9d30",
 //}
-
-// exports.omdbKey = {
-// 	consumer_key: "40e9cece",
-// }
