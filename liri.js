@@ -157,7 +157,7 @@ function random(){
 				myTweets();
 			}	
 		}
-	})
+	});
 }
 
 if(command == "my-tweets"){
@@ -174,7 +174,6 @@ else if (command == "do-what-it-says"){
 
 }
 else{
-
 	console.log(" Please give the correct command, type in 'node liri.js' \n and then either type 'my-tweets' or 'spotify-this-song' and a song title for data on a song,\n 'movie-this' and a movie title for data on a movie or 'do-what-it-says' for some random data");
 }
 
