@@ -75,7 +75,7 @@ function movieInfo(value) {
 	            console.log("Language: " + body.Language + "\n ");
 	            console.log("Plot: " + body.Plot + "\n ");
 	            console.log("Actors: " + body.Actors + "\n ");
-	            console.log("Rotten Tomatoes Rating: " + body.Ratings[1].value + "\n ");
+	            console.log("Rotten Tomatoes Rating: " + body.Ratings[1].Value + "\n ");
 	            console.log("Rotten Tomatoes URL: " + body.tomatoURL);
 	            return;
 			}
@@ -96,7 +96,7 @@ function movieInfo(value) {
 	            console.log("Language: " + body.Language + "\n ");
 	            console.log("Plot: " + body.Plot + "\n ");
 	            console.log("Actors: " + body.Actors + "\n ");
-	            console.log("Rotten Tomatoes Rating: " + body.Ratings[1].value + "\n ");
+	            console.log("Rotten Tomatoes Rating: " + body.Ratings[1].Value + "\n ");
 	            console.log("Rotten Tomatoes URL: " + body.tomatoURL);
 	            return;
 			}
