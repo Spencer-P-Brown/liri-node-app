@@ -63,8 +63,8 @@ function movieInfo(value) {
 	if (value) {
 		var queryUrl = "http://www.omdbapi.com/?t=" + value + "&y=&tomatoes=true&r=json&apikey=40e9cece";
 		request(queryUrl, function (error, response, body) {
-			if (error || response.statuscode === 404){
-				console.log("We Couldn't find that movie, please try again.");
+			if (error){
+				console.log("error:", error);
 			}	
 			else if (!error && response.statusCode === 200){
 				var body = JSON.parse(body);
