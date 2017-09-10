@@ -63,8 +63,8 @@ function movieInfo(value) {
 	if (value) {
 		var queryUrl = "http://www.omdbapi.com/?t=" + value + "&y=&tomatoes=true&r=json&apikey=40e9cece";
 		request(queryUrl, function (error, response, body) {
-			if (error){
-				console.log('error:', error);
+			if (error || response.statuscode === 404){
+				console.log("We Couldn't find that movie, please try again.");
 			}	
 			else if (!error && response.statusCode === 200){
 				var body = JSON.parse(body);
@@ -81,9 +81,8 @@ function movieInfo(value) {
 			}
 		});
 	}
-	//if user didn't pass in a value the default value is set here, I bet there is a cleaner way to code this but this works
-	//the default title that returns is Heavy Metal becuase I have not seen Mr. Nobody and wanted to return something I know is really awesome.
-	//if you haven't seen Heavy Metal, go and rent it. It's not on Netflix.
+	//if user didn't pass in a value the default value is set here
+	//the default title that returns is Heavy Metal 
 	if (value == false){
 		queryUrl = "http://www.omdbapi.com/?t=heavy+metal&y=&tomatoes=true&r=json&apikey=40e9cece";
 		request(queryUrl, function (error, response, body) {
@@ -121,10 +120,10 @@ function spotifyMe(){
 		    }	     
 		});
 	}
-//similar thing as the movie function but again I hate the Ace of Base so my default song is something I actually enjoy
-// plus my default song is super metal \m/ \m/
+//similar thing as the movie function
+
 	else if(value == false){
-		spotify.search({ type: "track", query: "raining blood", limit: "1" }, function(err, data) {
+		spotify.search({ type: "track", query: "Cheap Sunglasses", limit: "1" }, function(err, data) {
 			console.log("\nArtist: " + JSON.stringify(data.tracks.items[0].artists[0].name, null, 2) + "\n ");
 	 		console.log("Song Title: " + JSON.stringify(data.tracks.items[0].name) + "\n ");
 	 		console.log("Album: " +JSON.stringify(data.tracks.items[0].album.name) + "\n ");
@@ -134,6 +133,7 @@ function spotifyMe(){
 }
 
 //this is the function that takes the data from my random.txt file and passes it as a search value in the Spotify function
+
 
 function random(){
 //this line is accessing the .txt file
@@ -150,7 +150,7 @@ function random(){
 			if (arr[0] == "movie-this"){
 				movieInfo(value);
 			}
-			else if (arr[0] == "spotify-this-song"){
+			else if (arr[0] == "spotify-this"){
 				spotifyMe(value);
 			}
 			else if (arr[0] == "my-tweets"){
@@ -166,7 +166,7 @@ if(command == "my-tweets"){
 else if(command == "movie-this"){
 	movieInfo(value);
 }
-else if (command == "spotify-this-song"){
+else if (command == "spotify-this"){
 	spotifyMe(value);
 }
 else if (command == "do-what-it-says"){
@@ -174,6 +174,6 @@ else if (command == "do-what-it-says"){
 
 }
 else{
-	console.log(" Please give the correct command, type in 'node liri.js' \n and then either type 'my-tweets' or 'spotify-this-song' and a song title for data on a song,\n 'movie-this' and a movie title for data on a movie or 'do-what-it-says' for some random data");
+	console.log(" Please give the correct command, type in 'node liri.js' \n and then either type 'my-tweets' or 'spotify-this' and a song title for data on a song,\n 'movie-this' and a movie title for data on a movie");
 }
 
